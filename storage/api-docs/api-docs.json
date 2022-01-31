@@ -1,0 +1,246 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Mandu",
+        "description": "Mandu Apis",
+        "contact": {
+            "email": "marcoansllancari@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api/"
+        }
+    ],
+    "paths": {
+        "division": {
+            "get": {
+                "tags": [
+                    "Division"
+                ],
+                "summary": "Get divisions list",
+                "operationId": "5e518f8920e54011c97b45029a33b292",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Division"
+                ],
+                "summary": "Register division.",
+                "operationId": "60edebf06d57a0f50d6a418a65a392a3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Division"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "division/{id}": {
+            "get": {
+                "tags": [
+                    "Division"
+                ],
+                "summary": "Get a single division",
+                "operationId": "6c09c035bb8b9a20d17d7a5b78bb3182",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Divisionn Id",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Division"
+                ],
+                "summary": "Update a divisionz",
+                "operationId": "222bdd1ccba19157dd4f88baaa760826",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Divisionn Id",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "quizz/{id}": {
+            "delete": {
+                "tags": [
+                    "Division"
+                ],
+                "summary": "Delete a quizz",
+                "operationId": "932cf579ff64fdb33f90e12c09b3c449",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Divisionn Id",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "division/{id}/sub-divisions": {
+            "get": {
+                "tags": [
+                    "Division"
+                ],
+                "summary": "Get a  division subdivisions",
+                "operationId": "0d28d140a98e8f30328bbc267dc4c3d6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Divisionn Id",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Division": {
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "readOnly": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "maxLength": 45,
+                        "example": "Direccion General"
+                    },
+                    "parent_division_id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "collaborators": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "level": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "ambassador": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "example": "Eleazar Ortiz Gerhold"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Division",
+            "description": "Routes for Divisions"
+        }
+    ],
+    "security": [
+        []
+    ]
+}
